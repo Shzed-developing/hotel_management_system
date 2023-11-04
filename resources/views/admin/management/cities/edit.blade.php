@@ -1,0 +1,67 @@
+@component('admin.management.layouts.content')
+    <div class="admin">
+        <div class="right-part">
+            <div class="show-reservation-menu">
+                <img src="/images/building_5193766.svg">
+                <p>شهر</p>
+                <ul class="dropdown">
+                    <li ><a href="{{ route('admin.city.create') }}">ایجاد شهر</a></li>
+                    <li ><a href="{{ route('admin.city.index') }}">لیست شهرها</a></li>
+                </ul>
+            </div>
+            <div class="show-reservation-menu">
+                <img src="/images/gallery_833281.svg">
+                <p>تصاویر</p>
+                <ul class="dropdown">
+                    <li><a href="{{ route('admin.image.create') }}">ایجاد تصاویر</a></li>
+                    <li><a href="{{ route('admin.image.index') }}">لیست تصاویر</a></li>
+                </ul>
+            </div>
+            <div class="show-reservation-menu">
+                <img src="/images/accountt.svg">
+                <p>میزبانان</p>
+                <ul class="dropdown">
+                    <li><a href="{{ route('admin.host.index') }}">لیست میزبانان</a></li>
+                </ul>
+            </div>
+            <div class="show-reservation-menu">
+                <img src="/images/hotel_5981565.svg">
+                <p>هتل ها</p>
+                <ul class="dropdown">
+                    <li><a href="{{ route('admin.hotel.index') }}">لیست هتل ها</a></li>
+                </ul>
+            </div>
+            <div class="show-reservation-menu">
+                <img src="/images/testimonial_900356.svg">
+                <p>ویژگی ها</p>
+                <ul class="dropdown">
+                    <li><a href="{{ route('admin.attribute.create') }}">ایجاد ویژگی</a></li>
+                    <li><a href="{{ route('admin.attribute.index') }}">لیست ویژگی ها</a></li>
+                </ul>
+            </div>
+            <div class="show-reservation-menu">
+                <img src="/images/coin_2529396.svg">
+                <p>پرداختی ها</p>
+                <ul class="dropdown">
+                    <li><a href="{{ route('admin.cash.index') }}">لیست پرداختی ها</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form action="{{ route('admin.city.update', ['city' => $city->id]) }}" method="POST">
+        @csrf
+        @method('PATCH')
+        <div class="create-city">
+            <p>ويرايش شهر</p>
+            <div class="city-table">
+                <p>نام شهر</p>
+                <input name="name" type="text" placeholder="نام شهر راوارد کنید" value="{{ $city->name }}"/>
+                <p>نامک</p>
+                <input name="label" type="text" placeholder="نام شهر را به انگلیسی وارد کنید" value="{{ $city->label }}"/>
+                <p>استان</p>
+                <input name="state" type="text" placeholder="استان" value="{{ $city->state }}"/></br>
+                <button class="login" type="submit">تایید</button>
+            </div>
+        </div>
+    </form>
+@endcomponent
